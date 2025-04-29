@@ -18,17 +18,44 @@ public class Excepciones1 {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner teclado = new Scanner(System.in);
+        int numA;
+        int numB;
+        int division;
         
-        System.out.print("Dime numero A: ");
-        int numA = Integer.parseInt(teclado.nextLine());
-        
-        System.out.print("Dime numero B: ");
-        int numB = Integer.parseInt(teclado.nextLine());
+        try{
+            System.out.print("Dime numero A: ");
+            numA = Integer.parseInt(teclado.nextLine());
         
         
-        int division = numA/numB;
+            System.out.print("Dime numero B: ");
+            numB = Integer.parseInt(teclado.nextLine());
+            
         
-        System.out.println("División: "+division);
+            division = numA/numB;
+            System.out.println("División: "+division);
+            
+        }
+//        catch (ArithmeticException e){
+//            System.out.println("ERROR: excepcion de division por 0");
+//        }
+//        catch (NumberFormatException e){
+//            System.out.println("ERROR: no has introducido un numero");
+//        }
+        catch(Exception e){
+           
+            System.out.println("   --EXCEPCION--");
+            System.out.println(e);
+            
+           
+            
+        }
+        
+        
+        System.out.println("El programa sigue por aqui");
+        
+        
+        
+        
         
         
     }
