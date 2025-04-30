@@ -11,7 +11,7 @@ import java.io.FileReader;
  *
  * @author Juan Antonio Cuello Alarcon <juanantonio.cuello@murciaeduca.es>
  */
-public class Ficheros2 {
+public class Ficheros3_escritura {
 
     /**
      * @param args the command line arguments
@@ -19,30 +19,28 @@ public class Ficheros2 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        try{
         
-            BufferedReader br = new BufferedReader(new FileReader("src/ficheros/usuarios.csv"));
+        //=======================================
+        // Escritura de un fichero de texto 
+        //=======================================
 
+        String archivo = "src/ficheros2/texto.txt";
+        
+        try{
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
             
-            String linea = br.readLine();
-            while (linea!=null){
-                //System.out.println(linea);
-                
-                String [] datos = linea.split(";");
-                System.out.println("Nombre:"+datos[0]);
-                System.out.println("Apellido:"+datos[1]);
-                System.out.println("Email:"+datos[2]);
-                System.out.println("-----------------------");
-                
-                linea = br.readLine();
-            }
-
-            br.close();
-
+            System.out.println("archivo abierto correctamente");
+            
+            System.out.println("CONTENIDO LINEA A LINEA");
+            System.out.println("-----------------------");
+            
         }
         catch(Exception e){
             System.out.println(e);
         }
+        
+        
+        
         
         
         
