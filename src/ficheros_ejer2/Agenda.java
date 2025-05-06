@@ -26,6 +26,7 @@ public class Agenda {
         //Tengo que cargar todos los datos que hay en el disco,
         //ya que al volver a arrancar el programa, el arraylist
         //esta vacio.
+        System.out.println("...cargando datos de datos.csv");
         cargarDatos(this.fichero);
         
         
@@ -90,11 +91,13 @@ public class Agenda {
     private void cargarDatos(String archivo){
         try{
         
+            int numRegistros=0;
+            
             BufferedReader br = new BufferedReader(new FileReader(archivo));
    
             String linea = br.readLine();
             while (linea!=null){
-                
+                numRegistros++;
                 String [] datos = linea.split(";");
                 
                 Contacto c = new Contacto(datos[0],datos[1],datos[2]);
@@ -104,10 +107,12 @@ public class Agenda {
             }
 
             br.close();
+            System.out.println("...cargados "+numRegistros+" contactos");
 
         }
         catch(Exception e){
-            System.out.println(e);
+            //System.out.println(e);
+            System.out.println("No hay datos para cargar");
         }
         
         

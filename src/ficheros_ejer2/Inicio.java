@@ -53,7 +53,7 @@ public class Inicio {
                     System.out.println("  ERROR: opción no válida");
             }
             
-        }while (opcion != 4);
+        }while (opcion != 3);
         
         
         
