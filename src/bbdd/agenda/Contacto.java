@@ -15,6 +15,8 @@ public class Contacto {
     private String email;
     
     
+    //Este constructor lo usaremos cuando enviemos un nuevo
+    //contacto a la bbdd
     public Contacto(String nombre, String apellidos, String email){
         
         this.nombre = nombre;
@@ -22,6 +24,7 @@ public class Contacto {
         this.email = email;
     }
     
+    //Este constructor lo usaremos cuando leamos un contacto de la bbdd
     public Contacto(int id, String nombre, String apellidos, String email){
         this.id = id;
         this.nombre = nombre;

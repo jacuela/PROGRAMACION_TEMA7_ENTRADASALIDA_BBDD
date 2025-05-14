@@ -24,15 +24,24 @@ public class Agenda {
     public void insertarContacto(String nombre, String ape, String email){
         Contacto c = new Contacto (nombre,ape,email);
         
+        //NO SE HACE ESTO:      listaContactos.add(c);
+        
         //## Añadir a la bbdd dicho contacto
-        
-        
+        BD_Agenda_MariaDB.insertar(c);
         
     }
     
     public void listar(){
         
+        this.listaContactos = BD_Agenda_MariaDB.getListaCompleta();
         
+        System.out.println("======================TODOS=======================");
+        for (Contacto c : listaContactos) {
+            System.out.println(c);
+            
+        }
+        System.out.println("==================================================");
+
     }
     
     public void listarPorLetra(){

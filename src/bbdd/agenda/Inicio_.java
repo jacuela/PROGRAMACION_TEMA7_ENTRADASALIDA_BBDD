@@ -44,12 +44,12 @@ public class Inicio_ {
                 System.out.println("");System.out.println("");System.out.println("");
                 
                 
-                if (!filtrada){
+                //if (!filtrada){
                      agenda.listar();
-                }
-                else{
-                    //listo pero filtrado por letra
-                }
+//                }
+//                else{
+//                    //listo pero filtrado por letra
+//                }
                 
                 
                 //Muestro el menú
@@ -73,9 +73,8 @@ public class Inicio_ {
                         String apellidos = teclado.nextLine();
                         System.out.print("  Introduce el email: ");
                         String email = teclado.nextLine();
-                        System.out.print("  Introduce la fecha de nacimiento:[dd/MM/yyyy]: ");
-                        String fecha = teclado.nextLine();
-
+                        agenda.insertarContacto(nombre, apellidos, email);
+                       
                         break;
                     case 2:
                         System.out.print("Introduce el ID a eliminar: ");
@@ -89,6 +88,7 @@ public class Inicio_ {
                         break;
                         
                     case 5:
+                        BD_Agenda_MariaDB.cerrarConexion();
                         break;
                 }
             } while (opcionElegida != 5);
