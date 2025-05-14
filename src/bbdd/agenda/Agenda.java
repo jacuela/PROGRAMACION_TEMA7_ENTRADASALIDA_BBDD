@@ -14,6 +14,9 @@ public class Agenda {
     private ArrayList<Contacto> listaContactos;
     
     public Agenda(){
+        //Este array list es de apoyo y va a tener en tiempo de ejecución 
+        //los contactos a mostrar.  
+        //O tenemos todos los contactos o los filtrados por una letra
         listaContactos = new ArrayList();
         
     }
@@ -26,6 +29,17 @@ public class Agenda {
         
         
     }
+    
+    public void listar(){
+        
+        
+    }
+    
+    public void listarPorLetra(){
+        
+        
+    }
+    
     
     
     
