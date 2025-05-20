@@ -31,6 +31,14 @@ public class Agenda {
         
     }
     
+    public void borrarContacto (int id){
+        
+        BD_Agenda_MariaDB.borrar(id);
+        
+        
+    }
+    
+    
     public void listar(){
         
         this.listaContactos = BD_Agenda_MariaDB.getListaCompleta();
@@ -44,9 +52,15 @@ public class Agenda {
 
     }
     
-    public void listarPorLetra(){
+    public void listarPorLetra(char letra){
         
-        
+        this.listaContactos = BD_Agenda_MariaDB.getListaPorLetra(letra);
+        System.out.println("======================LETRA:"+letra+"=======================");
+        for (Contacto c : listaContactos) {
+            System.out.println(c);
+            
+        }
+        System.out.println("==================================================");
     }
     
     

@@ -92,7 +92,54 @@ public class BD_Agenda_MariaDB {
         
         
         
-    } 
+    } //fin getListaCompleta
+    
+    
+    
+    public static ArrayList<Contacto> getListaPorLetra(char letra){
+        
+        ArrayList<Contacto> lista = new ArrayList();
+        
+        try{
+            //Aqui hago el select * from agenda y devuelvo los datos
+            //en un arraylist
+            Statement statement = conexion.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT id, nombre, apellidos, email FROM contactos");
+
+            while (rs.next()) {
+                    
+                    String nombre = rs.getString("nombre");
+                    if (nombre.charAt(0)==letra){
+                        //Este contacto SÍ EMPIEZA POR LA LETRA A FILTRAR
+                        //Cojo el resto de campos, creo el contacto y lo meto en el array
+                        int id = rs.getInt("id");
+                        String apellidos = rs.getString("apellidos");
+                        String email = rs.getString("email");
+
+                        lista.add(new Contacto(id,nombre,apellidos,email));
+                    }
+            }
+            
+            rs.close();
+            statement.close();
+
+            return lista;
+            
+        }
+        catch(Exception e){
+            return null;
+            
+        }
+        
+        
+        
+    } //fin getListaCompleta
+    
+    
+    
+    
+    
+    
     
     
     public static void insertar (Contacto c){
@@ -106,17 +153,35 @@ public class BD_Agenda_MariaDB {
             statement.executeUpdate(sql);
             statement.close();
             
+        }catch (Exception ex) {
+                System.out.println(ex);
+                
+        }
+        
+    } //fin insertar
+    
+    
+    public static void borrar (int id){
+        try{
+            Statement statement = conexion.createStatement();
+           
+            String sql=String.format("DELETE FROM contactos WHERE id='%d'",id);
+            System.out.println("SQL-->"+sql);
             
+            statement.executeUpdate(sql);
+            statement.close();
             
         }catch (Exception ex) {
                 System.out.println(ex);
                 
-                
         }
-     
         
-        
-        
-    }
+    } //fin borrar
+    
+    
+    
+    
+    
+    
     
 }

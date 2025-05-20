@@ -45,7 +45,7 @@ public class Inicio_ {
                 
                 
                 //if (!filtrada){
-                     agenda.listar();
+                    // agenda.listar();
 //                }
 //                else{
 //                    //listo pero filtrado por letra
@@ -53,6 +53,9 @@ public class Inicio_ {
                 
                 
                 //Muestro el menú
+                System.out.println("========================================");
+                System.out.println("        AGENDA CON BASE DE DATOS");
+                System.out.println("========================================");
                 System.out.println("1. Insertar Contacto");
                 System.out.println("2. Borrar Contacto");
                 System.out.println("3. Lista completa");
@@ -79,12 +82,18 @@ public class Inicio_ {
                     case 2:
                         System.out.print("Introduce el ID a eliminar: ");
                         int id = Integer.parseInt(teclado.nextLine());
+                        agenda.borrarContacto(id);
+                        
+                        
+                        
                         break;
                     case 3:
+                        agenda.listar();
                         break;    
                     case 4:
                         System.out.print("Escoge letra [A-Z]: ");
                         letra=teclado.nextLine().charAt(0);
+                        agenda.listarPorLetra(letra);
                         break;
                         
                     case 5:
